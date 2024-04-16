@@ -14,8 +14,8 @@ export default function FlatMatePosts(){
         })
     },[])
     
-    {posts?.map((post) => (
-        <PostCard post={post} />
+    {posts?.map((post,index) => (
+        <PostCard key={index} post={post} />
     ))}
     return(
         <div>

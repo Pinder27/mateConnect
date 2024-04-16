@@ -86,6 +86,9 @@ export async function GetUserFlatMatePosts(userID:string) {
        const posts =  await prisma.flatMate.findMany({
         where:{
          UserID:Number(userID)
+        },
+        include:{
+              Images:true
         }
       } )
        return posts
