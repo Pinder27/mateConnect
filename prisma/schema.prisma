@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  ID             Int       @id @default(autoincrement())
+  Name           String
+  Email          String    @unique
+  Password       String?
+  MatePostings   MatePosting[]
+  FlatMate       FlatMate[]
+  TravelMate     TravelMate[]
+  HackathonMate  HackathonMate[]
+  Profile        Profile?
+}
+
+model Profile {
+  ProfileID      Int  @id @default(autoincrement())
+  UserID       Int   @unique 
+  User           User      @relation(fields: [UserID], references: [ID])
+  BIO            String?     @default("")
+  dOB            String?     @default("")
+  ProfilePic     String?  @default("")
+  Gender         String?  @default("")
+  Phone          String?   @default("")
+  FacebookHandle String?  @default("")
+  TwitterHandle  String?  @default("")
+  InstagramHandle String?  @default("")
+  LinkedInHandle String?  @default("")
+}
+
+model FlatMate {
+  ID  Int @id @default(autoincrement())
+  UserID       Int   
+  User           User      @relation(fields: [UserID], references: [ID])
+  Title         String 
+  Description  String
+  Type        String  @default("any")
+  Rent        Int
+  Location    String
+  Gender      String  @default("any")
+  Sharing     Boolean
+  Parking     Boolean
+  Furnished   Boolean
+  WithWashroom  Boolean
+  Balcony      Boolean
+  DatePosted   DateTime   @default(now()) 
+  Images   Images[]
+}
+
+model Images {
+  ID  Int @id @default(autoincrement())
+  FlatMateID      Int
+  FlatMate        FlatMate @relation(fields:[FlatMateID],references:[ID])
+  Url     String
+  }
+
+
+
+model HackathonMate{
+  ID  Int @id @default(autoincrement())
+  UserID       Int   
+  User           User      @relation(fields: [UserID], references: [ID])
+}
+
+model TravelMate{
+  ID  Int @id @default(autoincrement())
+  UserID       Int    
+  User           User      @relation(fields: [UserID], references: [ID])
+}
+
+model MatePosting {
+  PostingID    Int       @id @default(autoincrement())
+  UserID       Int
+  User         User      @relation(fields: [UserID], references: [ID])
+  Title        String
+  Description  String
+  Location     String
+  DatePosted   DateTime   @default(now())
+  CategoryName  String
+  MateDetails  MateDetail[] 
+}
+
+model MateCategory {
+  CategoryID   Int       @id @default(autoincrement())
+  CategoryName String  @unique
+}
+
+model MateDetail {
+  MateDetailID       Int      @id @default(autoincrement())
+  PostingID          Int
+  MatePosting        MatePosting @relation(fields: [PostingID], references: [PostingID],onDelete: Cascade)
+  SpecificAttribute  String
+  Value              String
+}
