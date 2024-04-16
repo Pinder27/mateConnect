@@ -12,7 +12,7 @@ interface Post {
 export default function Page({List}:{List:Post[]}){
     return(
         <div>
-            {List.map((post)=><Card title={post.title} description={post.description} location={post.location} date={post.date} />)}
+            {List.map((post,index)=><Card key={index} title={post.title} description={post.description} location={post.location} date={post.date} />)}
         </div>
     )
 }
