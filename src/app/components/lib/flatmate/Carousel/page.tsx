@@ -4,7 +4,7 @@
 import { GetImagesUrl } from "@/app/actions/S3";
         import React, { useEffect, useState } from "react";
 
-     export default  function Carousel({flatmateID}:{flatmateID:number}){ 
+       function Carousel({flatmateID}:{flatmateID:number}){ 
 
             const [imageUrls, setImageUrls] = useState<string[]>(["/Image1.jpg"]);
 
