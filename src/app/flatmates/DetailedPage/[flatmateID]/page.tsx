@@ -3,6 +3,7 @@ import { GetSpecificFlatMatePost } from "@/app/actions/FlatmateActions"
 
 
 import { ViewUserProfile } from "@/app/actions/userProfileActions";
+import ImageCarousel from "@/app/components/lib/flatmate/ImageCarousel/page";
 
 
 export default async function Page({ params }: { params: { flatmateID: string } }) {
@@ -19,7 +20,8 @@ export default async function Page({ params }: { params: { flatmateID: string } 
       <AppBar/>
     <div className="flex flex-col items-center p-4">
       <div className="h-96 w-full flex justify-center">
-       {/* <Carousel flatmateID={Number(params.flatmateID)} />  */}
+        <ImageCarousel flatmateID={Number(params.flatmateID)} />  
+        
        
        </div>
        <div className="grid grid-col-3 gap-4 border rounded mt-2 w-full p-4 ps-12">

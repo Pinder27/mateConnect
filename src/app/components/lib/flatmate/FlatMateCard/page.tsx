@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { useEffect, useState } from 'react';
 import { Images } from '@/app/type';
+import ImageCarousel from '../ImageCarousel/page';
 
 
 
@@ -43,7 +44,7 @@ export default function Page({ userID, images, id, title = "required flatmate", 
 
         <div  className="mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className='m-2 h-40 w-1/2'>
-                {/* <Carousel flatmateID={id} /> */}
+                 <ImageCarousel flatmateID={id} /> 
             </div>
             <Link href={`/flatmates/DetailedPage/${id}`} className='w-full mt-4 ms-4'>
                 <div>
