@@ -30,7 +30,7 @@ export async function GetObjectUrl(key: string) {
     return await getSignedUrl(client, command);
 }
 
-export async function GetImagesUrl(flatmateID:number){
+export async function GetImagesUrl(flatmateID:number|string){
     let imagesUrl = []
     try{
         const images = await prisma.images.findMany({

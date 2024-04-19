@@ -4,7 +4,7 @@
 import { GetImagesUrl } from "@/app/actions/S3";
         import React, { useEffect, useState } from "react";
 
-        export default function Page({flatmateID}:{flatmateID:number}){ 
+        export default function Page({flatmateID}:{flatmateID:number|string}){ 
 
             const [imageUrls, setImageUrls] = useState<string[]>(["/Image1.jpg"]);
 

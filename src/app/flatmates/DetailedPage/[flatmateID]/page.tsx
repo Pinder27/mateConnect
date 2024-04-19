@@ -4,8 +4,8 @@ import { GetImagesUrl } from "@/app/actions/S3"
 import Carousel from "@/app/components/lib/flatmate/Carousel/page"
 import { ViewUserProfile } from "@/app/actions/userProfileActions";
 
-export default async function Page({ params }: { params: { flatmateID: number } }) {
-  const post = await GetSpecificFlatMatePost(params.flatmateID);
+export default async function Page({ params }: { params: { flatmateID: string } }) {
+  const post = await GetSpecificFlatMatePost(Number(params.flatmateID));
   const profile = await ViewUserProfile(post?.UserID as number);
 
   
