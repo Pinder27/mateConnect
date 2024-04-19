@@ -4,7 +4,7 @@
 import { GetImagesUrl } from "@/app/actions/S3";
         import React, { useEffect, useState } from "react";
 
-        export default function Page({flatmateID}:{flatmateID:number|string}){ 
+         function Page({flatmateID}:{flatmateID:number}){ 
 
             const [imageUrls, setImageUrls] = useState<string[]>(["/Image1.jpg"]);
 
@@ -67,4 +67,5 @@ import { GetImagesUrl } from "@/app/actions/S3";
             );
         }
     
+        export default Page;
 
