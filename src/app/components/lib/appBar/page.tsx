@@ -1,6 +1,7 @@
 "use client"
 
 import { signIn, signOut, useSession } from "next-auth/react"
+import Link from "next/link";
 
 import { redirect, useRouter } from "next/navigation";
 
@@ -15,7 +16,7 @@ export default function Page(){
 
     return (
         <div className="flex flex-row border-b-4 mb-3 items-center p-4">
-            <div>MateConnect</div>
+            <Link href={"/"}>MateConnect</Link>
             {user && (
                 <div className="ms-auto">
                     <button onClick={()=>router.push('/userDashboard')} className=" p-2 m-1 bg-blue-200 hover:bg-blue-300 active bg-blue-400">

@@ -8,7 +8,7 @@ export default async function Page({ params }: { params: { flatmateID: number } 
   const post = await GetSpecificFlatMatePost(params.flatmateID);
   const profile = await ViewUserProfile(post?.UserID as number);
 
-  const images = await GetImagesUrl(Number(params.flatmateID))
+  
   
   
   
@@ -17,8 +17,9 @@ export default async function Page({ params }: { params: { flatmateID: number } 
     <div>
       <AppBar/>
     <div className="flex flex-col items-center p-4">
-      
-       <Carousel images = {images} />
+      <div className="h-96 w-full flex justify-center">
+       <Carousel flatmateID={params.flatmateID} />
+       </div>
        <div className="grid grid-col-3 gap-4 border rounded mt-2 w-full p-4 ps-12">
         <div className="col-span-3 font-bold">Flat Details</div>
           <div className="col-span-3">{post?.Title}</div>

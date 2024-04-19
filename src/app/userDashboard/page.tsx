@@ -7,11 +7,11 @@ import SideBar from "./sideBar"
 export default function Page(){
     const [selectedOption,setSelectedOption] = useState("profile")
     return(
-        <>
+        <div className="h-full overflow-auto">
         <AppBar/>
-        <div className="flex flex-row">
+        <div className="flex flex-row h-screen">
            <SideBar selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
-           <div className="h-screen bg-stone-100 w-full overflow-auto">
+           <div className="h-full w-full overflow-auto">
             
             {selectedOption=="profile"&&<UserDetailUpdateForm/>}
             {selectedOption=="userPosts"&&<UserPosts/>}
@@ -19,6 +19,6 @@ export default function Page(){
            
            </div>
         </div>
-        </>
+        </div>
     )
 }

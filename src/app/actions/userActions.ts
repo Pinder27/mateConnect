@@ -22,7 +22,7 @@ export async function CreateUser(formData:FormData) {
         console.log("error12",e)
         throw e;
     }
-    redirect('/')
+    redirect('/login')
 }
 
 export async function LoginUser(email:string,password:string) {

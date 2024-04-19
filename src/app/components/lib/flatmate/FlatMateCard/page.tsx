@@ -3,17 +3,12 @@ import Link from 'next/link'
 
 import { useEffect, useState } from 'react';
 import { Images } from '@/app/type';
-import { GetObjectUrl } from '@/app/actions/S3';
+import { GetImagesUrl, GetObjectUrl } from '@/app/actions/S3';
+import Carousel from '../Carousel/page';
 
 export default function Page({ userID, images, id, title = "required flatmate", description = "desc", location = "loc", date, rent = 10000, furnished, parking, sharing, withWashroom, gender }: { title: string, description: string, location: string, date: Date, rent: number, parking: boolean, sharing: boolean, withWashroom: boolean, id: number, furnished: boolean, gender: string, images: Images[], userID: number }) {
-    const [imageUrl, setImageUrl] = useState<string>("/Image1.jpg");
-       console.log(imageUrl);
-    useEffect(() => {  
-        if(images?.length>0)
-        GetObjectUrl(images[0].Url).then((res) => {
-            setImageUrl(res as string)
-        })
-     },[])
+    
+      
     const [postedAgo, setPostedAgo] = useState<string>(""); 
     
 
@@ -45,24 +40,24 @@ export default function Page({ userID, images, id, title = "required flatmate", 
     return (
 
 
-        <Link href={`/flatmates/DetailedPage/${id}`} className="w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div className='m-2 h-32'>
-                <img src={imageUrl} className="mx-auto block object-cover w-auto h-full" />
+        <div  className="mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className='m-2 h-40 w-1/2'>
+                <Carousel flatmateID={id} />
             </div>
-            <div className='w-full'>
+            <Link href={`/flatmates/DetailedPage/${id}`} className='w-full mt-4 ms-4'>
                 <div>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+                    <h5 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
                 </div>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{description}</p>
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">{description}</p>
                 <div className='grid grid-cols-3'>
                     <div>{`Location - ${location}`}</div>
                     <div>{`Rent - ${rent}`}</div>
                     <div>{`Gender - ${gender}`}</div>
                 </div>
                 <div className='text-end w-full opacity-25 text-sm '>{`Posted ${postedAgo}`}</div>
-            </div>
-        </Link>
+            </Link>
+        </div>
 
     )
 }

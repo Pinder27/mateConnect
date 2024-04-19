@@ -35,7 +35,7 @@ export default function Page({ filtered, setFiltered,list,setList}: { filtered: 
           setFiltered(filteredList)
     },[rent])
     return (
-        <div className="w-1/4 bg-stone-200 p-4">
+        <div className="w-1/4 bg-stone-200 p-4 h-full">
             <div className="bg-white border p-2">
                 <div>Gender</div>
                 <div>

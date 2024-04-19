@@ -35,7 +35,7 @@ export async function GetImagesUrl(flatmateID:number){
     try{
         const images = await prisma.images.findMany({
             where:{
-                FlatMateID:flatmateID
+                FlatMateID:Number(flatmateID)
             }
         })
         for (let i = 0; i < images.length; i++) {

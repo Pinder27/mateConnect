@@ -1,9 +1,19 @@
 "use client"
 
 
-        import React, { useState } from "react";
+import { GetImagesUrl } from "@/app/actions/S3";
+        import React, { useEffect, useState } from "react";
 
-        export default function Page({ images = ['/Image1.jpg','/Image2.jpg'] }: { images: string[]|undefined }) {
+        export default function Page({flatmateID}:{flatmateID:number}){ 
+
+            const [imageUrls, setImageUrls] = useState<string[]>(["/Image1.jpg"]);
+
+            useEffect(()=>{
+                GetImagesUrl(flatmateID).then((res)=>{
+                    setImageUrls(res as string[])
+                })
+            },[])
+           
            
             const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -12,26 +22,27 @@
             };
         
             const goToPrevSlide = () => {
-                setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
+                setCurrentSlide((prevSlide) => (prevSlide === 0 ? imageUrls.length - 1 : prevSlide - 1));
             };
         
             const goToNextSlide = () => {
-                setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
+                setCurrentSlide((prevSlide) => (prevSlide === imageUrls.length - 1 ? 0 : prevSlide + 1));
             };
         
             return (
-                <div className="relative w-3/5 bg-gray-200">
+                
+                <div className="relative w-full bg-gray-200 h-full">
                     {/* Carousel wrapper */}
-                    <div className="relative overflow-hidden rounded-lg p-3  ">
+                    <div className="relative overflow-hidden rounded-lg p-3 h-full ">
                         {/* Map over the images array and render each image */}
-                        <div className={`h-96 w-auto ease-in-out duration-700`}>
-                                <img src={images[currentSlide]}  className="mx-auto block object-cover w-auto h-full"  alt={`Slide`} />
+                        <div className={`h-full w-auto ease-in-out duration-700`}>
+                                <img src={imageUrls[currentSlide]}  className="mx-auto block object-cover w-auto h-full"  alt={`Slide`} />
                             </div>
                     </div>
                     {/* Slider indicators */}
-                    <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                        {images.map((_, index) => (
-                            <button key={index} type="button" className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-gray-700' : 'bg-gray-300'}`} aria-current={index === currentSlide ? 'true' : 'false'} aria-label={`Slide ${index + 1}`} onClick={() => goToSlide(index)}></button>
+                    <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2">
+                        {imageUrls.map((_, index) => (
+                            <button key={index} type="button" className={`me-1 w-1 h-1 rounded-full ${index === currentSlide ? 'bg-gray-700' : 'bg-gray-300'}`} aria-current={index === currentSlide ? 'true' : 'false'} aria-label={`Slide ${index + 1}`} onClick={() => goToSlide(index)}></button>
                         ))}
                     </div>
                     {/* Slider controls */}
@@ -52,6 +63,7 @@
                         </span>
                     </button>
                 </div>
+                
             );
         }
     
