@@ -15,7 +15,7 @@ import SearchBar from "../../searchBar/page";
  
 export default function Page(){
    const [list,setList] = useState<FlatMate[]|undefined>([]);
-   const [filtered,setFiltered] = useState<FlatMate[]|undefined>([]); 
+   const [filtered,setFiltered] = useState<FlatMate[]|undefined>(undefined); 
    
    useEffect(()=>{
      GetFlatMatePosts().then((res)=>{
