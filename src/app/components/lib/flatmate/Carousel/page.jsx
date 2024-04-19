@@ -4,20 +4,20 @@
 import { GetImagesUrl } from "@/app/actions/S3";
         import React, { useEffect, useState } from "react";
 
-     export default  function Carousel({flatmateID}:{flatmateID:any}){ 
+     export default  function Carousel({flatmateID}){ 
 
-            const [imageUrls, setImageUrls] = useState<string[]>(["/Image1.jpg"]);
+            const [imageUrls, setImageUrls] = useState(["/Image1.jpg"]);
 
             useEffect(()=>{
                 GetImagesUrl(flatmateID).then((res)=>{
-                    setImageUrls(res as string[])
+                    setImageUrls(res)
                 })
             },[])
            
            
             const [currentSlide, setCurrentSlide] = useState(0);
 
-            const goToSlide = (index:number) => {
+            const goToSlide = (index) => {
                 setCurrentSlide(index);
             };
         
