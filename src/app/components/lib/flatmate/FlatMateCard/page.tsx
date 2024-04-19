@@ -3,8 +3,9 @@ import Link from 'next/link'
 
 import { useEffect, useState } from 'react';
 import { Images } from '@/app/type';
-
 import Carousel from '../Carousel/page';
+
+
 
 export default function Page({ userID, images, id, title = "required flatmate", description = "desc", location = "loc", date, rent = 10000, furnished, parking, sharing, withWashroom, gender }: { title: string, description: string, location: string, date: Date, rent: number, parking: boolean, sharing: boolean, withWashroom: boolean, id: number, furnished: boolean, gender: string, images: Images[], userID: number }) {
     

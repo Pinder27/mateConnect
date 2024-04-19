@@ -1,8 +1,9 @@
 import AppBar from "@/app/components/lib/appBar/page"
 import { GetSpecificFlatMatePost } from "@/app/actions/FlatmateActions"
 
-import Carousel from "@/app/components/lib/flatmate/Carousel/page"
+
 import { ViewUserProfile } from "@/app/actions/userProfileActions";
+import Carousel from "@/app/components/lib/flatmate/Carousel/page";
 
 export default async function Page({ params }: { params: { flatmateID: string } }) {
   const post = await GetSpecificFlatMatePost(Number(params.flatmateID));
@@ -18,7 +19,8 @@ export default async function Page({ params }: { params: { flatmateID: string } 
       <AppBar/>
     <div className="flex flex-col items-center p-4">
       <div className="h-96 w-full flex justify-center">
-       {/* <Carousel flatmateID={Number(params.flatmateID)} /> */}
+       <Carousel flatmateID={Number(params.flatmateID)} /> 
+       
        </div>
        <div className="grid grid-col-3 gap-4 border rounded mt-2 w-full p-4 ps-12">
         <div className="col-span-3 font-bold">Flat Details</div>
