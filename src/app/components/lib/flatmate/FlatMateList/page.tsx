@@ -4,7 +4,7 @@
 import FlatMateCard from "../FlatMateCard/page"
 import { GetFlatMatePosts } from "@/app/actions/FlatmateActions";
 import { useEffect, useState } from "react";
-import { FlatMate } from "@/app/type";
+import { FlatMate } from "../../../../../../new-type";
 import SearchBar from "../../searchBar/page";
 import FilterSideBar from "../FilterSideBar/page";
 

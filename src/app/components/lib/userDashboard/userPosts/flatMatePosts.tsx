@@ -3,7 +3,7 @@
 import { GetUserFlatMatePosts } from "@/app/actions/FlatmateActions"
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react"
-import { FlatMate } from "@/app/type"
+import { FlatMate } from "../../../../../../new-type"
 
 export default function FlatMatePosts(){
     const [posts,setPosts] = useState<FlatMate[]>()

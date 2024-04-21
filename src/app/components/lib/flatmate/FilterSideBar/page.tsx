@@ -1,6 +1,6 @@
 "use client"
 import { GetFilteredFlatList } from "@/app/actions/FlatmateActions";
-import { FlatMate } from "@/app/type";
+import { FlatMate } from "../../../../../../new-type";
 import { useEffect, useState } from "react";
 
 export default function FilterSideBar({ filtered, setFiltered,list,setList}: { filtered: FlatMate[]|undefined, setFiltered: React.Dispatch<React.SetStateAction<FlatMate[]>>,list:FlatMate[],setList:React.Dispatch<React.SetStateAction<FlatMate[]>> }) {

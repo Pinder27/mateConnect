@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 import { useEffect, useState } from 'react';
-import { Images } from '@/app/type';
+import { Images } from '../../../../../../new-type';
 import ImageCarousel from '../ImageCarousel/page';
 
 
