@@ -3,7 +3,7 @@ import { GetFilteredFlatList } from "@/app/actions/FlatmateActions";
 import { FlatMate } from "@/app/type";
 import { useEffect, useState } from "react";
 
-export default function FilterSideBar({ filtered, setFiltered,list,setList}: { filtered: any, setFiltered: any,list:any,setList:any }) {
+export default function FilterSideBar({ filtered, setFiltered,list,setList}: { filtered: FlatMate[]|undefined, setFiltered: React.Dispatch<React.SetStateAction<FlatMate[]>>,list:FlatMate[],setList:React.Dispatch<React.SetStateAction<FlatMate[]>> }) {
     const [gender, setGender] = useState("any");
     const [rent, setRent] = useState('100000');
     const [sharing, setSharing] = useState<boolean|undefined>(undefined);
@@ -25,8 +25,9 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
             Type:type
         }
           GetFilteredFlatList(filters).then((res)=>{
-            setList(res)
-            setFiltered(res)
+            const filteredList = res as FlatMate[]
+            setList(filteredList)
+            setFiltered(filteredList)
           })
     }
     ,[gender,sharing,parking,furnished,withWashroom,balcony,type])
