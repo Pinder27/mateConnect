@@ -13,6 +13,9 @@ export default function Page(){
     if(session?.data?.user){
         user = true;
     }
+    console.log("nextauth yrl",process.env.NEXTAUTH_URL);
+    console.log("nextauth secrtet",process.env.NEXTAUTH_SECRET);
+    console.log("urldb",process.env.DATABASE_URL);
 
     return (
         <div className="flex flex-row border-b-4 mb-3 items-center p-4">
