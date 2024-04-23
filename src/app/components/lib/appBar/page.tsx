@@ -16,6 +16,7 @@ export default function Page(){
     console.log("nextauth yrl",process.env.NEXTAUTH_URL);
     console.log("nextauth secrtet",process.env.NEXTAUTH_SECRET);
     console.log("urldb",process.env.DATABASE_URL);
+    console.log("env",process.env);
 
     return (
         <div className="flex flex-row border-b-4 mb-3 items-center p-4">
