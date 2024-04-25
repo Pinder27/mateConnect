@@ -2,7 +2,8 @@
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { S3Client, GetObjectCommand,PutObjectCommand } from "@aws-sdk/client-s3";
 import { PrismaClient } from '@prisma/client'
-import crypto from 'crypto'
+
+
 
 
 
@@ -62,7 +63,7 @@ export async function PutObjectUrl(fileName:string,flatmateID:number) {
         const url =  await getSignedUrl(client,command);
         await prisma.images.create({
             data: {
-                FlatMateID:flatmateID,
+                FlatMateID:Number(flatmateID),
                 Url: `/uploads/flat-images/${fileName}`,
             }
         })
@@ -73,6 +74,7 @@ export async function PutObjectUrl(fileName:string,flatmateID:number) {
         console.log(e);
         
     }
+    
 
 }
 

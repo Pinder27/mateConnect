@@ -8,7 +8,7 @@ import ImageCarousel from '../ImageCarousel/page';
 
 
 
-export default function Page({ userID, images, id, title = "required flatmate", description = "desc", location = "loc", date, rent = 10000, furnished, parking, sharing, withWashroom, gender }: { title: string, description: string, location: string, date: Date, rent: number, parking: boolean, sharing: boolean, withWashroom: boolean, id: number, furnished: boolean, gender: string, images: Images[], userID: number }) {
+export default function Page({type, userID, images, id, title = "required flatmate", description = "desc", location = "loc", date, rent = 10000, furnished, parking, sharing, withWashroom, gender }: { title: string, description: string, location: string, date: Date, rent: number, parking: boolean, sharing: boolean, withWashroom: boolean, id: number, furnished: boolean, gender: string, images: Images[], userID: number,type:string }) {
     
       
     const [postedAgo, setPostedAgo] = useState<string>(""); 
@@ -42,7 +42,7 @@ export default function Page({ userID, images, id, title = "required flatmate", 
     return (
 
 
-        <div  className="mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className='m-2 h-40 w-1/2'>
                  <ImageCarousel flatmateID={id} /> 
             </div>
@@ -51,11 +51,13 @@ export default function Page({ userID, images, id, title = "required flatmate", 
                     <h5 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
                 </div>
 
-                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">{description}</p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{description}</p>
+                <div className='mb-2'>{`Location - ${location}`}</div>
                 <div className='grid grid-cols-3'>
-                    <div>{`Location - ${location}`}</div>
+                    
                     <div>{`Rent - ${rent}`}</div>
                     <div>{`Gender - ${gender}`}</div>
+                    <div>{`Type - ${type}`}</div>
                 </div>
                 <div className='text-end w-full opacity-25 text-sm '>{`Posted ${postedAgo}`}</div>
             </Link>

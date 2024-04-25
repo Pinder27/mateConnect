@@ -1,9 +1,11 @@
 "use client"
 
 import { PutObjectUrl } from "@/app/actions/S3";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Page({ params }: { params: { flatmateID: number } }){
+  const router = useRouter()  
     const [files, setFiles] = useState<FileList | null>(null);
     if(files){
       for (let i = 0; i < files?.length; i++) {
@@ -52,6 +54,7 @@ export default function Page({ params }: { params: { flatmateID: number } }){
         Promise.all(promises)
           .then(() => {
             console.log("All uploads completed successfully");
+            router.push(`/`);
           })
           .catch((error) => {
             console.error("One or more uploads failed:", error);

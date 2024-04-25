@@ -36,7 +36,7 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
           setFiltered(filteredList)
     },[rent])
     return (
-        <div className="w-1/4 bg-stone-200 p-4 h-full">
+        <div className="w-80 bg-stone-200 p-4">
             <div className="bg-white border p-2">
                 <div>Gender</div>
                 <div>

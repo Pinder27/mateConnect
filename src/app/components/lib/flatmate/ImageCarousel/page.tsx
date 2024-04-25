@@ -31,9 +31,9 @@ import { GetImagesUrl } from "@/app/actions/S3";
         
             return (
                 
-                <div className="relative w-full bg-gray-200 h-full">
+                <div className="relative w-full bg-gray-200 h-full z-1">
                     {/* Carousel wrapper */}
-                    <div className="relative overflow-hidden rounded-lg p-3 h-full ">
+                    <div className=" rounded-lg p-3 h-full ">
                         {/* Map over the images array and render each image */}
                         <div className={`h-full w-auto ease-in-out duration-700`}>
                                 <img src={imageUrls[currentSlide]}  className="mx-auto block object-cover w-auto h-full"  alt={`Slide`} />

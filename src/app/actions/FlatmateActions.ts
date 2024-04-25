@@ -20,7 +20,8 @@ export async function  AddFLatMatePost(userId:string,formData:FormData) {
         Balcony:(formData.get("balcony") as string == 'on')as boolean,
         Sharing:(formData.get("sharing") as string == 'on')as boolean,
         WithWashroom: (formData.get("withWashroom") as string == 'on')as boolean,
-        Gender:formData.get("gender")as string
+        Gender:formData.get("gender")as string,
+        Type:formData.get("type") as string
 
     }
     try{

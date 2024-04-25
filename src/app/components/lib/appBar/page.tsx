@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react"
 import Link from "next/link";
 
 import { redirect, useRouter } from "next/navigation";
+import DropdownButton from "../dropdown btn/page";
 
 
 export default function Page(){
@@ -13,29 +14,25 @@ export default function Page(){
     if(session?.data?.user){
         user = true;
     }
-    console.log("nextauth yrl",process.env.NEXTAUTH_URL);
-    console.log("nextauth secrtet",process.env.NEXTAUTH_SECRET);
-    console.log("urldb",process.env.DATABASE_URL);
-    console.log("env",process.env);
-
+   
     return (
-        <div className="flex flex-row border-b-4 mb-3 items-center p-4">
+        <div className="flex flex-row border-b-4 mb-3 items-center p-4 bg-white">
             <Link href={"/"}>MateConnect</Link>
+            <div className="ms-auto flex me-10">
+            <Link href={'/flatmates/AddPost'} className="rounded me-8 ms-auto p-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white">Add Post</Link>
             {user && (
-                <div className="ms-auto">
-                    <button onClick={()=>router.push('/userDashboard')} className=" p-2 m-1 bg-blue-200 hover:bg-blue-300 active bg-blue-400">
-                        userDashboard
-                    </button>
-                    <button className="m-1 p-2 bg-blue-200 hover:bg-blue-300 active bg-blue-400" onClick={() => signOut()}>
-                        logout
-                    </button>
-                </div>
+                
+              
+                    
+                    <DropdownButton/>
+                
             )}
             {!user && (
                 <button className=" ms-auto p-2 bg-blue-200 hover:bg-blue-300 active bg-blue-400" onClick={() => signIn()}>
                     login
                 </button>
             )}
+            </div>
         </div>
     );
 }
