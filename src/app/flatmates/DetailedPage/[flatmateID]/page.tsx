@@ -16,8 +16,7 @@ export default async function Page({ params }: { params: { flatmateID: string } 
   
 
   return (
-    <div>
-      <AppBar/>
+    
     <div className="flex flex-col items-center p-4">
       <div className="h-96 w-full flex justify-center">
         <ImageCarousel flatmateID={Number(params.flatmateID)} />  
@@ -47,6 +46,6 @@ export default async function Page({ params }: { params: { flatmateID: string } 
       
 
     </div>
-    </div>
+    
   )
 }

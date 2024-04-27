@@ -25,23 +25,25 @@ export async function CreateUserProfile(userId:number,formData:FormData){
     };
 
     try{
-        await prisma.profile.update({
-            where:{
-                UserID:userId
-            },
-            data:profile
+        await prisma.profile.create({
+            data:{
+                ...profile,
+                UserID:Number(userId)
+            }
+            
         })
         console.log("success updation");
     }catch(e){
         console.log(e)
     }
+    redirect('/')
 }
 
 export async function GetUserProfile(userID:number) {
     try{
         const profile = prisma.profile.findUnique({
             where:{
-                UserID:userID
+                UserID:Number(userID)
             }
         })
         return profile

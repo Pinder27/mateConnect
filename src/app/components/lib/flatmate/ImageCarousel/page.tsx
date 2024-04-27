@@ -3,6 +3,7 @@
 
 import { GetImagesUrl } from "@/app/actions/S3";
         import React, { useEffect, useState } from "react";
+    
 
     export default   function ImageCarousel({flatmateID}:{flatmateID:number}){ 
 
@@ -36,7 +37,7 @@ import { GetImagesUrl } from "@/app/actions/S3";
                     <div className=" rounded-lg p-3 h-full ">
                         {/* Map over the images array and render each image */}
                         <div className={`h-full w-auto ease-in-out duration-700`}>
-                                <img src={imageUrls[currentSlide]}  className="mx-auto block object-cover w-auto h-full"  alt={`Slide`} />
+                                <img src={imageUrls[currentSlide]}  className="mx-auto block object-cover w-auto h-full"  alt={"Flat Image"} />
                             </div>
                     </div>
                     {/* Slider indicators */}

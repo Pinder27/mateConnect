@@ -1,7 +1,8 @@
 "use server"
 import { redirect } from 'next/navigation'
 import { PrismaClient } from '@prisma/client'
-import { error } from 'console';
+
+import { revalidatePath } from 'next/cache';
 
 
 const prisma = new PrismaClient()
@@ -71,6 +72,11 @@ export async function  UpdateFLatMatePost(userId:number,flatMateId:number,formDa
 export async function  DeleteFLatMatePost(userId:number,flatMateId:number) {
     
     try{
+        await prisma.images.deleteMany({
+            where:{
+                FlatMateID:flatMateId
+            }
+        })
         await prisma.flatMate.delete({
            where:{
             ID:flatMateId,
@@ -80,9 +86,11 @@ export async function  DeleteFLatMatePost(userId:number,flatMateId:number) {
     }catch(e){
         console.log(e);
     }
+    revalidatePath('/flatmates/UserPosts')
 }
 
 export async function GetUserFlatMatePosts(userID:string) {
+    console.log("userid",userID);
     try{
        const posts =  await prisma.flatMate.findMany({
         where:{
@@ -102,7 +110,8 @@ export async function GetFlatMatePosts() {
     try{
        const posts =  await prisma.flatMate.findMany({
         include:{
-           Images:true
+           Images:true,
+              User:{select:{Name:true}}
         }}
        )
        
@@ -151,3 +160,4 @@ export async function GetFilteredFlatList(filters:FilterOptions){
         console.log(e);
     }
 }
+

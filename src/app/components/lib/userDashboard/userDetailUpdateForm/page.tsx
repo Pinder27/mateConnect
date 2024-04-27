@@ -2,30 +2,18 @@
 
 import { CreateUserProfile, GetUserProfile } from "@/app/actions/userProfileActions";
 import { useEffect, useState } from "react";
+import { Profile } from "../../../../../../new-type";
 
-interface Profile {
-  
-    ProfileID: number,
-    UserID: number,
-    BIO: string | null,
-    dOB: string | null,
-    ProfilePic: string | null,
-    Gender: string | null,
-    Phone: string | null,
-    FacebookHandle: string | null,
-    TwitterHandle: string | null,
-    InstagramHandle: string | null,
-    LinkedInHandle: string | null,
 
-}
 
-export default function Page(){
+export default function UserProfileForm({session}:{session:any}){
   const [profile,setProfile] = useState<Profile|null|undefined>()
-    const userId = 1;
+    const userId = session?.user?.id;
     const updateUserWithId = CreateUserProfile.bind(null, userId)
     
     useEffect(()=>{
         GetUserProfile(userId).then((res)=>{
+          console.log("res",res);
           setProfile(res)
         })
     },[])
@@ -36,7 +24,7 @@ export default function Page(){
           
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone" >
-              Phone
+              Phone*
             </label>
             <input
               
@@ -45,27 +33,14 @@ export default function Page(){
               name="phone"
               type="text"
               placeholder="Phone"
-              defaultValue={`${profile?.Phone}`}
+              defaultValue={profile?.Phone?profile.Phone:""}
             />
           </div>
           
-         
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="bio">
-              Bio
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="bio"
-              name="bio"
-              type="text"
-              placeholder="bio"
-              defaultValue={`${profile?.BIO}`}
-            />
-          </div>
+        
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="dob">
-              dob
+              dob*
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -91,7 +66,7 @@ export default function Page(){
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="gender">
-              Gender
+              Gender*
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

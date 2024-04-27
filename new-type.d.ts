@@ -20,7 +20,24 @@ export type FlatMate = {
     Balcony    :  boolean
     DatePosted :  Date
     Type:     string
+    User:{Name:string}
     Images  : Images[]
+}
+
+export type Profile = {
+  
+    ProfileID: number,
+    UserID: number,
+    BIO: string | null,
+    dOB: string | null,
+    ProfilePic: string | null,
+    Gender: string | null,
+    Phone: string | null,
+    FacebookHandle: string | null,
+    TwitterHandle: string | null,
+    InstagramHandle: string | null,
+    LinkedInHandle: string | null,
+
 }
 
 

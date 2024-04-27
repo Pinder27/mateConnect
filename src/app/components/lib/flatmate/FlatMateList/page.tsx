@@ -14,18 +14,18 @@ import FilterSideBar from "../FilterSideBar/page";
 
  
 export default function Page(){
-   const [list,setList] = useState<FlatMate[]>([]);
-   const [filtered,setFiltered] = useState<FlatMate[]>([]); 
-   
-   useEffect(()=>{
-     GetFlatMatePosts().then((res)=>{
-        console.log(res);
-        const Res = res as FlatMate[]
-        setList(Res)
-        setFiltered(Res)
-       
-     })
-   },[])
+  const [list,setList] = useState<FlatMate[]>([]);
+  const [filtered,setFiltered] = useState<FlatMate[]>([]); 
+  
+  useEffect(()=>{
+    GetFlatMatePosts().then((res)=>{
+      console.log(res);
+      const Res = res || []; // Provide a default empty array if res is undefined
+      setList(Res);
+      setFiltered(Res);
+     
+    })
+  },[])
 
 
   
@@ -42,7 +42,7 @@ export default function Page(){
        
        
         <div className="flex flex-col ms-4 z-0 w-2/3 relative" >
-            {filtered?.map((post)=><FlatMateCard key={post.ID} title={post.Title} description={post.Description} location={post.Location} date={post.DatePosted} rent={post.Rent} parking={post.Parking} sharing={post.Sharing} withWashroom={post.WithWashroom} id={post.ID} furnished={post.Furnished} gender={post.Gender} images={post.Images} userID={post.UserID} type={post.Type} />)}
+            {filtered?.map((post)=><FlatMateCard key={post.ID} post={post}  />)}
         </div>
         
         </div>

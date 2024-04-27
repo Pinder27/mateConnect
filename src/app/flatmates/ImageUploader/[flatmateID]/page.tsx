@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { flatmateID: number } }){
 
     
     return(
-        <div>
+        <div className="p-14">
             <form onSubmit={handleSubmit}>
             <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
