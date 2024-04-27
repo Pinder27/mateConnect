@@ -1,4 +1,4 @@
-import AppBar from "@/app/components/lib/appBar/page"
+
 import { GetSpecificFlatMatePost } from "@/app/actions/FlatmateActions"
 
 

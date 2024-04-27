@@ -13,7 +13,7 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
     const [balcony, setBalcony] = useState<boolean|undefined>(undefined);
     const [type,setType] = useState("any");
 
-    console.log(gender);
+  
     useEffect(() => {
         const filters = {
             Gender:gender==='any'?undefined:gender,

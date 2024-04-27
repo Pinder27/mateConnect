@@ -8,12 +8,13 @@ import ImageCarousel from "../../flatmate/ImageCarousel/page"
 import Link from "next/link"
 
 export default function FlatMatePosts({session}:{session:any}){
-    const [posts,setPosts] = useState<FlatMate[]>()
+    const [posts,setPosts] = useState<FlatMate[]>([])
     
-    
+    console.log("session",session);
     useEffect(()=>{
         GetUserFlatMatePosts(session?.user?.id).then((res)=>{
-             setPosts(res as FlatMate[])
+            if(res)
+             setPosts(res)
         })
     },[])
 
