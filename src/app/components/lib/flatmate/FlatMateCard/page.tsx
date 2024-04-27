@@ -49,7 +49,7 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
             <Link href={`/flatmates/DetailedPage/${post.ID}`} className='w-full mt-4 ms-4'>
                 <div className='flex mb-4'>
                     <div className='me-2'>Posted by - </div>
-                    <div className=" text-l font-bold tracking-tight text-gray-900 dark:text-white">{post?.User?.Name}</div>
+                    <div className=" text-l font-bold tracking-tight text-gray-900 dark:text-white">{post.Title}</div>
                 </div>
 
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{post.Description}</p>

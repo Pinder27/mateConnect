@@ -111,7 +111,7 @@ export async function GetFlatMatePosts() {
        const posts =  await prisma.flatMate.findMany({
         include:{
            Images:true,
-              User:{select:{Name:true}}
+             
         }}
        )
        

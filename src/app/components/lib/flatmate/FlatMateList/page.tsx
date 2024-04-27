@@ -20,10 +20,10 @@ export default function Page(){
   useEffect(()=>{
     GetFlatMatePosts().then((res)=>{
       console.log(res);
-      const Res = res || []; // Provide a default empty array if res is undefined
-      setList(Res);
-      setFiltered(Res);
-     
+      if(res){
+      setList(res); // Provide a default empty array if res is undefined
+      setFiltered(res); // Provide a default empty array if res is undefined
+    }
     })
   },[])
 
