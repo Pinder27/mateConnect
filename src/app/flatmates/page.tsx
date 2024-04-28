@@ -1,5 +1,4 @@
 
-import { Suspense } from "react"
 import FlatMateList from "../components/lib/flatmate/FlatMateList/page"
 
  

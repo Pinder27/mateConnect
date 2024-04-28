@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 export default async function UserProfile(){
     const session = await getServerSession(NEXT_AUTH)
+    console.log("sess in user profile",session);
     if(!session) redirect("/")
     return (
         <div>

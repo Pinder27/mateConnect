@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 import { useEffect, useState } from 'react';
-import { FlatMate, Images } from '../../../../../../new-type';
+import { FlatMate } from '../../../../../../new-type';
 import ImageCarousel from '../ImageCarousel/page';
 
 
@@ -17,7 +17,7 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
     useEffect(() => {   
     function calculatePostedAgo() {
         const currentDate = new Date();
-        const postTime = new Date(post.DatePosted);
+        const postTime = new Date(post?.DatePosted);
         const timeDifference = currentDate.getTime() - postTime.getTime();
 
         // Calculate the time difference in seconds, minutes, hours, and days
@@ -44,21 +44,21 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
 
         <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div className='m-2 h-40 w-1/2'>
-                 <ImageCarousel flatmateID={post.ID} /> 
+                 <ImageCarousel flatmateID={post?.ID} /> 
             </div>
-            <Link href={`/flatmates/DetailedPage/${post.ID}`} className='w-full mt-4 ms-4'>
+            <Link href={`/flatmates/DetailedPage/${post?.ID}`} className='w-full mt-4 ms-4'>
                 <div className='flex mb-4'>
                     <div className='me-2'>Posted by - </div>
-                    <div className=" text-l font-bold tracking-tight text-gray-900 dark:text-white">{post.Title}</div>
+                    <div className=" text-l font-bold tracking-tight text-gray-900 dark:text-white">{post?.Title}</div>
                 </div>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{post.Description}</p>
-                <div className='mb-2'>{`Location - ${post.Location}`}</div>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{post?.Description}</p>
+                <div className='mb-2'>{`Location - ${post?.Location}`}</div>
                 <div className='grid grid-cols-3'>
                     
-                    <div>{`Rent - ${post.Rent}`}</div>
-                    <div>{`Gender Pref - ${post.Gender}`}</div>
-                    <div>{`Type - ${post.Type}`}</div>
+                    <div>{`Rent - ${post?.Rent}`}</div>
+                    <div>{`Gender Pref - ${post?.Gender}`}</div>
+                    <div>{`Type - ${post?.Type}`}</div>
                 </div>
                 <div className='text-end w-full opacity-25 text-sm '>{`Posted ${postedAgo}`}</div>
             </Link>
