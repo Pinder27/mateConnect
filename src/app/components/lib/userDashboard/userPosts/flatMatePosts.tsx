@@ -14,7 +14,8 @@ export default function FlatMatePosts({session}:{session:any}){
     useEffect(()=>{
         GetUserFlatMatePosts(session?.user?.id).then((res)=>{
             if(res)
-             setPosts(res)
+                console.log("res" ,res as FlatMate[]);
+             setPosts(res as FlatMate[])
         })
     },[])
 

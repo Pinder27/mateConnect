@@ -20,7 +20,10 @@ export type FlatMate = {
     Balcony    :  boolean
     DatePosted :  Date
     Type:     string
-    
+    User:{
+        Name:string
+  
+    }
     Images  : Images[]
 }
 
