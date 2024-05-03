@@ -11,12 +11,11 @@ export default function Page({session}:{session:any}){
     const router = useRouter()
     
    
-   
     return (
         <div className="flex flex-row border-b-4 mb-3 items-center p-4 bg-white">
             <Link href={"/"}>MateConnect</Link>
             <div className="ms-auto flex me-10">
-            <Link href={'/flatmates/AddPost'} className="rounded me-8 ms-auto p-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white">Add Post</Link>
+            {session&&<Link href={'/flatmates/AddPost'} className="rounded me-8 ms-auto p-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white">Add Post</Link>}
             {session && (
                 
               
