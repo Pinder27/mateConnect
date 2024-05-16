@@ -1,11 +1,13 @@
 "use client"
 
 import { PutObjectUrl } from "@/app/actions/S3";
-import { redirect, useRouter } from "next/navigation";
+import UpLoading from "@/app/components/lib/uploading/uploading";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Page({ params }: { params: { flatmateID: number } }){
   const router = useRouter()  
+    const [loading,setLoading] = useState<boolean>(false)
     const [files, setFiles] = useState<FileList | null>(null);
     if(files){
       for (let i = 0; i < files?.length; i++) {
@@ -15,6 +17,7 @@ export default function Page({ params }: { params: { flatmateID: number } }){
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      setLoading(true)
       if (files) {
         // Create an array to hold all the promises
         const promises = [];
@@ -54,6 +57,7 @@ export default function Page({ params }: { params: { flatmateID: number } }){
         Promise.all(promises)
           .then(() => {
             console.log("All uploads completed successfully");
+            setLoading(false)
             router.push(`/`);
           })
           .catch((error) => {
@@ -83,7 +87,7 @@ export default function Page({ params }: { params: { flatmateID: number } }){
           
           />
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">submit</button>
+        {!loading?(<button className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${loading?'disable':''}`}type="submit">submit</button>):(<UpLoading/>)}
             </form>
         </div>
     )
