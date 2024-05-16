@@ -90,7 +90,7 @@ export async function  DeleteFLatMatePost(userId:number,flatMateId:number) {
 }
 
 export async function GetUserFlatMatePosts(userID:string) {
-    console.log("userid",userID);
+   // console.log("userid",userID);
     try{
        const posts =  await prisma.flatMate.findMany({
         where:{
