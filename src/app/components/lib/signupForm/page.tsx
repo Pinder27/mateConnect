@@ -1,8 +1,33 @@
 "use client"
 import { CreateUser } from "@/app/actions/userActions"
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
+import { useState } from "react"
 
 export default function SignupForm() {
+   const router = useRouter()
+    const [error,setError] = useState<string | null>(null)
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>)=>{ 
+        e.preventDefault();
+        const formdata = new FormData(e.currentTarget);
+
+        try{
+              
+            if(formdata.get("password") !== formdata.get("confirm_password")) throw new Error("Password does not match")    
+                
+                   await CreateUser(formdata);
+                 
+                    router.push('/login')
+            
+         
+            
+        }catch(e:any){
+            setError(e.message)
+        }
+       
+       
+      }
+
     return (
         
         <div className="bg-grey-lighter min-h-screen flex flex-col">
@@ -10,28 +35,33 @@ export default function SignupForm() {
             <Link className="m-4 font-bold text-xl text-purple-900 italic" href={"/"}>FlatMates</Link>
            
                     <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                        <form action={CreateUser} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                        <form onSubmit={handleSubmit} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                             <h1 className="mb-8 text-3xl text-center">Sign up</h1>
+                            <div className="text-center text-red-500">{error}</div>
                             <input 
                                 type="text"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded mb-4"
                                 name="name"
                                 placeholder="Full Name" />
         
                             <input 
                                 type="text"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded mb-4"
                                 name="email"
                                 placeholder="Email" />
         
                             <input 
                                 type="password"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded mb-4"
                                 name="password"
                                 placeholder="Password" />
                             <input 
                                 type="password"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded mb-4"
                                 name="confirm_password"
                                 placeholder="Confirm Password" />
         

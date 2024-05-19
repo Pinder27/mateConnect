@@ -16,13 +16,16 @@ export async function CreateUser(formData:FormData) {
         await prisma.user.create({
             data:user
         })
-       console.log("success")
        
-    }catch(e){
+       
+       
+    }catch(e:any)
+    {
         console.log("error12",e)
-        throw e;
+        if(e?.code == "P2002")  throw new Error("Email already exists");
+        //return e?.message;
     }
-    redirect('/login')
+   
 }
 
 export async function LoginUser(email:string,password:string) {

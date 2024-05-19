@@ -47,7 +47,7 @@ export default function Page(){
                                 name="password"
                                 placeholder="Password" />
 
-                                <button onMouseUp={()=>setView(false)} onMouseDown={()=>setView(true)}>
+                                <button type="button" onMouseUp={()=>setView(false)} onMouseDown={()=>setView(true)}>
                                 <img src="/eye.png" alt="eye" className="absolute right-3 top-4  w-5 h-5"/>
                                 </button>
                                 </div>
