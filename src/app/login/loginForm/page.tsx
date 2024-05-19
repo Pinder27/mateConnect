@@ -3,11 +3,13 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 
  
 export default function Page(){
+    const [error,setError] = useState<string | null>(null)  
+    const [view,setView] = useState<boolean>(false)
     const router = useRouter()
 
     const handleSubmit = async(e:FormEvent<HTMLFormElement>)=>{
@@ -18,6 +20,8 @@ export default function Page(){
                 password:formdata.get("password"),
                 redirect:false
             })
+           
+           if(res?.error) setError(res.error)
             if(res?.status == 200) router.push('/')
             
     }
@@ -28,18 +32,25 @@ export default function Page(){
                         <form onSubmit={handleSubmit} className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                             <h1 className="mb-8 text-3xl text-center">Login</h1>
                             
-        
+                        {  error && <div className="text-red-500 text-center">{error}</div>}
                             <input 
                                 type="text"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded mb-4"
                                 name="email"
                                 placeholder="Email" />
-        
+                            <div className="relative mb-4">
                             <input 
-                                type="password"
-                                className="block border border-grey-light w-full p-3 rounded mb-4"
+                                type={!view?'password':'text'}
+                                required
+                                className="outline-none block border border-grey-light w-full p-3 rounded "
                                 name="password"
                                 placeholder="Password" />
+
+                                <button onMouseUp={()=>setView(false)} onMouseDown={()=>setView(true)}>
+                                <img src="/eye.png" alt="eye" className="absolute right-3 top-4  w-5 h-5"/>
+                                </button>
+                                </div>
                         
         
                             <button

@@ -20,12 +20,12 @@ export const NEXT_AUTH =
         },
         async authorize(credentials:any) {
           // Add logic here to look up the user from the credentials supplied
-         console.log(credentials);
+         console.log("credentials",credentials);
     
-           const user = await LoginUser(credentials?.email,credentials?.Password);
+           const user = await LoginUser(credentials?.email,credentials?.password);
     
           
-           console.log(user);
+           
     
           if (user) {
             // Any object returned will be saved in `user` property of the JWT

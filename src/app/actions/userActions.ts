@@ -35,13 +35,14 @@ export async function LoginUser(email:string,password:string) {
                 Email:email,
             }
         })
-       
-        return user;
+        
+        if(user?.Password == password)  return user;
+        
+        throw new Error("Invalid Credentials");
      }catch(e){
         console.log(e);
         throw(e)
      }
-     redirect('/')
 }
 
 
