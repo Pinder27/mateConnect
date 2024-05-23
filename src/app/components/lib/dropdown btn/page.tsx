@@ -20,18 +20,18 @@ const DropdownButton: React.FC = () => {
 </svg>
             </button>
             {isOpen && (
-                <div className='absolute -left-12 z-10 bg-purple-900 divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700'>
-                    <ul className="py-2 px-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <div className='absolute -left-12 z-10 bg-purple-900 divide-y divide-gray-100 rounded-lg shadow w-36'>
+                    <ul className="py-2 px-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
       <li >
-        <a href="/flatmates/UserProfile" className="block text-white px-4 py-2 hover:bg-purple-600 rounded  dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+        <a href="/flatmates/UserProfile" className="block text-white px-4 py-2 hover:bg-purple-600 rounded ">Profile</a>
       </li>
       
       <li>
-        <a href="/flatmates/UserPosts" className="block text-white px-4 py-2 hover:bg-purple-600 rounded dark:hover:bg-gray-600 dark:hover:text-white">Your Posts</a>
+        <a href="/flatmates/UserPosts" className="block text-white px-4 py-2 hover:bg-purple-600 rounded ">Your Posts</a>
       </li>
      
       <li>
-        <a href="#" onClick={() => signOut()} className="block text-white px-4 py-2 hover:bg-purple-600 rounded dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+        <a href="#" onClick={() => signOut()} className="block text-white px-4 py-2 hover:bg-purple-600 rounded">Sign out</a>
       </li>
     </ul>
                 </div>

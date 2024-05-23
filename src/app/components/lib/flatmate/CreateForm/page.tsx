@@ -80,7 +80,7 @@ export default async function CreateForm() {
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="type">
             Type
           </label>
-          <select id="type" name='type' className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <select id="type" name='type' className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 ">
 
             <option value={'Pg'}>Pg</option>
             <option value={'Flat'}>Flat</option>
@@ -93,7 +93,7 @@ export default async function CreateForm() {
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="gender">
             Gender Preffered
           </label>
-          <select id="gender" name='gender' className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <select id="gender" name='gender' className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2 ">
 
             <option value={'female'}>Female</option>
             <option value={'male'}>Male</option>
@@ -105,7 +105,7 @@ export default async function CreateForm() {
 
         <div className="mb-4">
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             id="balcony"
             name="balcony"
             type="checkbox"
@@ -119,7 +119,7 @@ export default async function CreateForm() {
         </div>
         <div className="mb-4">
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="sharing"
             name="sharing"
             type="checkbox"
@@ -134,7 +134,7 @@ export default async function CreateForm() {
         <div className="mb-4">
 
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="furnished"
             name="furnished"
             type="checkbox"
@@ -147,7 +147,7 @@ export default async function CreateForm() {
         </div>
         <div className="mb-4">
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             id="parking"
             name="parking"
             type="checkbox"
@@ -160,7 +160,7 @@ export default async function CreateForm() {
         </div>
         <div className="mb-4">
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="withWashroom"
             name="withWashroom"
             type="checkbox"

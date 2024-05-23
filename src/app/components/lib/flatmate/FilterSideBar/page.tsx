@@ -26,6 +26,7 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
         }
           GetFilteredFlatList(filters).then((res)=>{
             const filteredList = res as FlatMate[]
+            console.log("fltyered",filteredList);
             setList(filteredList)
             setFiltered(filteredList)
           })

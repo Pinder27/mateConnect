@@ -38,17 +38,17 @@ export default function FlatMatePosts({session}:{session:any}){
 
 const PostCard = ({ post }: { post: FlatMate }) => {
     return (
-        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow">
             <div className='m-2 h-40 w-1/2'>
                  <ImageCarousel flatmateID={post.ID} /> 
             </div>
             <div  className='w-full mt-4 ms-4'>
                 <div className="grid grid-cols-2">
                 <div className="col-span-2">
-                    <h5 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{post.Title}</h5>
+                    <h5 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 ">{post.Title}</h5>
                 </div>
                 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 col-span-2">{post.Description}</p>
+                <p className="mb-3 font-normal text-gray-700 col-span-2">{post.Description}</p>
                 <div className='mb-2'>{`Location - ${post.Location}`}</div>
                 <div className="justify-self-end">
                 <Link href={`/flatmates/DetailedPage/${post.ID}`} className="bg-blue-500 hover:bg-blue-600 rounded p-2  px-9 text-white">view</Link>

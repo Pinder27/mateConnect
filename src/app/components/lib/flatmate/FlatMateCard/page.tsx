@@ -42,8 +42,8 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
     return (
 
 
-        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow ">
-            <div className='m-2 h-40 w-1/2'>
+        <div  className="z-0 mb-2 w-full sm:flex p-3 bg-white border border-gray-200 rounded-lg shadow ">
+            <div className='m-2 h-40 sm:h-40 sm:w-1/2'>
                  <ImageCarousel flatmateID={post?.ID} /> 
             </div>
             <Link href={`/flatmates/DetailedPage/${post?.ID}`} className='w-full mt-4 ms-4'>
@@ -54,10 +54,17 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
 
                 <p className="mb-3 font-normal text-gray-700 ">{post?.Description}</p>
                 <div className='mb-2'>{`Location - ${post?.Location}`}</div>
+                <div className='hidden sm:block'> 
                 <div className='grid grid-cols-3 gap-2'>
                     
                     <div>{`Rent - ${post?.Rent}`}</div>
                     <div>{`Gender Pref - ${post?.Gender}`}</div>
+                    <div>{`Type - ${post?.Type}`}</div>
+                </div>
+                </div>
+                <div className='sm:hidden'>{`Rent - ${post?.Rent}`}</div>
+                <div className='grid grid-cols-2 gap-2 sm:hidden'>
+                <div>{`Gender Pref - ${post?.Gender}`}</div>
                     <div>{`Type - ${post?.Type}`}</div>
                 </div>
                 <div className='text-end w-full opacity-25 text-sm '>{`Posted ${postedAgo}`}</div>

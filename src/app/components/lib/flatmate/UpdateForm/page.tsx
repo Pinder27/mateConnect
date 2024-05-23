@@ -77,7 +77,7 @@ export default function Page({flatmateId}:{flatmateId:number}){
         </div>
         <div className="mb-4">
         <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
             id="balcony"
             name="balcony"
             type="checkbox"
@@ -91,7 +91,7 @@ export default function Page({flatmateId}:{flatmateId:number}){
         </div>
         <div className="mb-4">
         <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="sharing"
             name="sharing"
             type="checkbox"
@@ -106,7 +106,7 @@ export default function Page({flatmateId}:{flatmateId:number}){
         <div className="mb-4">
          
           <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="furnished"
             name="furnished"
             type="checkbox"
@@ -119,7 +119,7 @@ export default function Page({flatmateId}:{flatmateId:number}){
         </div>
         <div className="mb-4">
         <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="parking"
             name="parking"
             type="checkbox"
@@ -132,7 +132,7 @@ export default function Page({flatmateId}:{flatmateId:number}){
         </div>
         <div className="mb-4">
         <input
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
             id="withWashroom"
             name="withWashroom"
             type="checkbox"
