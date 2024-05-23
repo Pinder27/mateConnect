@@ -54,7 +54,7 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
 
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{post?.Description}</p>
                 <div className='mb-2'>{`Location - ${post?.Location}`}</div>
-                <div className='grid grid-cols-3'>
+                <div className='grid grid-cols-3 gap-2'>
                     
                     <div>{`Rent - ${post?.Rent}`}</div>
                     <div>{`Gender Pref - ${post?.Gender}`}</div>
