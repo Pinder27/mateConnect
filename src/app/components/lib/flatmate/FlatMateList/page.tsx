@@ -45,7 +45,7 @@ export default function Page(){
        </div>
        
        
-        <div className="flex flex-col ms-4 z-0 w-full sm:w-2/3 relative" >
+        <div className={`flex flex-col ms-4 z-0 w-full sm:w-2/3 relative ${showFilterBar?'hidden':''}`} >
             {filtered?.map((post)=><FlatMateCard key={post.ID} post={post}  />)}
         </div>
         

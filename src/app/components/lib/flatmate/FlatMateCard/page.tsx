@@ -42,17 +42,17 @@ export default function FlateMateCard({post}:{post:FlatMate}) {
     return (
 
 
-        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div  className="z-0 mb-2 w-full flex flex-row p-3 bg-white border border-gray-200 rounded-lg shadow ">
             <div className='m-2 h-40 w-1/2'>
                  <ImageCarousel flatmateID={post?.ID} /> 
             </div>
             <Link href={`/flatmates/DetailedPage/${post?.ID}`} className='w-full mt-4 ms-4'>
                 <div className='flex mb-4'>
                     <div className='me-2'>Posted by - </div>
-                    <div className=" text-l font-bold tracking-tight text-gray-900 dark:text-white">{post?.User?.Name}</div>
+                    <div className=" text-l font-bold tracking-tight text-gray-900">{post?.User?.Name}</div>
                 </div>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{post?.Description}</p>
+                <p className="mb-3 font-normal text-gray-700 ">{post?.Description}</p>
                 <div className='mb-2'>{`Location - ${post?.Location}`}</div>
                 <div className='grid grid-cols-3 gap-2'>
                     

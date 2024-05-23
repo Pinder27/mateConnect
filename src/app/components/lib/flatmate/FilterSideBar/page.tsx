@@ -74,8 +74,8 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
             <div className="bg-white border p-2 mt-2">
                 <div>Rent</div>
 
-                <label htmlFor="minmax-range" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{`max budget - ${rent}`}</label>
-                <input onChange={(e) => setRent(e.target.value)} id="minmax-range" type="range" min="0" max="100000" step="1000" value={rent} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+                <label htmlFor="minmax-range" className="block mb-2 text-sm font-medium">{`max budget - ${rent}`}</label>
+                <input onChange={(e) => setRent(e.target.value)} id="minmax-range" type="range" min="0" max="100000" step="1000" value={rent} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
             </div>
             <div className="bg-white border p-2 mt-2">
                 <div>Sharing</div>
