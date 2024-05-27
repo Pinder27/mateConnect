@@ -31,10 +31,10 @@ export default function Page() {
         <div className=" bg-zinc-300 h-screen flex flex-col" >
             <Link className="m-4 font-bold text-xl text-purple-900 italic" href={"/"}>FlatMates</Link>
            <div className="flex-1 flex flex-col justify-center items-center content-center">
-            <div className="rounded bg-fixed bg-contain flex justify-center items-center w-2/3 h-5/6 mx-auto" style={{backgroundImage:"url(/img-1.jpg)"}}>
+            <div className="rounded bg-local bg-contain flex justify-center items-center w-2/3 h-5/6 mx-auto" style={{backgroundImage:"url(/img-1.jpg)"}}>
             <div className=" "  >
                 
-                <form onSubmit={handleSubmit} className="backdrop-blur-sm bg-transparent	 mx-auto bg-white   px-6 py-8 rounded shadow-md text-black w-80">
+                <form onSubmit={handleSubmit} className="backdrop-blur-sm bg-transparent	 mx-auto   px-6 py-8 rounded shadow-md text-black w-80">
                     <h1 className="text-white mb-8 text-3xl text-center">Login</h1>
 
                     {error && <div className="text-red-500 text-lg text-center">{error}</div>}
