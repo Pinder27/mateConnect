@@ -1,11 +1,14 @@
 "use client"
+import { FlatMate } from "../../../../../new-type";
 import { useState } from "react";
 
-export default function SearchBar({filtered,setFiltered}:{filtered: any,setFiltered:any}){
+
+export default function SearchBar({filtered,setFiltered}:{filtered: FlatMate[], setFiltered: React.Dispatch<React.SetStateAction<FlatMate[]>>}){
     const [search,setSearch] = useState<string>("");
  const handleClick = (e: React.MouseEvent<HTMLButtonElement>)=>{
   e.preventDefault();
-  setFiltered(filtered.filter((post:any)=>post.Location.toLowerCase().includes(search.toLowerCase())))
+  const newfiltered = filtered.filter((post:FlatMate)=>post.Location.toLowerCase().includes(search.toLowerCase()))
+  setFiltered(newfiltered)
  }
     return(
         <div className="w-full flex justify-center m-2">

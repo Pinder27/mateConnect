@@ -17,6 +17,7 @@ export default function Page(){
   const [list,setList] = useState<FlatMate[]>([]);
   const [filtered,setFiltered] = useState<FlatMate[]>([]); 
   const [showFilterBar,setShowFilterBar] = useState<boolean>(false);
+  const [loading,setLoading] = useState<boolean>(false);
   
   useEffect(()=>{
     GetFlatMatePosts().then((res)=>{
@@ -41,12 +42,14 @@ export default function Page(){
        <div className=" flex relative ">
          
          <div className={`w-80 ${showFilterBar?'':'hidden'} sm:block`} style={{ position: "sticky", top: "80px", height: "calc(100vh - 8rem)", overflowY: "auto" }}>
-       <FilterSideBar list={list} setList={setList} filtered={filtered} setFiltered={setFiltered} />
+       <FilterSideBar loading={loading} setLoading={setLoading} list={list} setList={setList} filtered={filtered} setFiltered={setFiltered} />
        </div>
        
        
         <div className={`flex flex-col ms-4 z-0 w-full sm:w-2/3 relative ${showFilterBar?'hidden':''}`} >
-            {filtered?.map((post)=><FlatMateCard key={post.ID} post={post}  />)}
+            {loading&&<div className="text-bold text-center mt-5">Loading...</div>}
+            {!loading&&filtered.length==0&&<div className="text-bold text-center mt-5">No Results Found</div>}
+            {!loading&&filtered.length>0&&filtered?.map((post)=><FlatMateCard key={post.ID} post={post}  />)}
         </div>
         
         </div>

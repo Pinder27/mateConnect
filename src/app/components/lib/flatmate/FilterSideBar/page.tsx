@@ -3,7 +3,7 @@ import { GetFilteredFlatList } from "@/app/actions/FlatmateActions";
 import { FlatMate } from "../../../../../../new-type";
 import { useEffect, useState } from "react";
 
-export default function FilterSideBar({ filtered, setFiltered,list,setList}: { filtered: FlatMate[]|undefined, setFiltered: React.Dispatch<React.SetStateAction<FlatMate[]>>,list:FlatMate[],setList:React.Dispatch<React.SetStateAction<FlatMate[]>> }) {
+export default function FilterSideBar({loading,setLoading, filtered, setFiltered,list,setList}: {loading: boolean,setLoading:React.Dispatch<React.SetStateAction<boolean>>, filtered: FlatMate[]|undefined, setFiltered: React.Dispatch<React.SetStateAction<FlatMate[]>>,list:FlatMate[],setList:React.Dispatch<React.SetStateAction<FlatMate[]>> }) {
     const [gender, setGender] = useState("any");
     const [rent, setRent] = useState('100000');
     const [sharing, setSharing] = useState<boolean|undefined>(undefined);
@@ -15,6 +15,7 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
 
   
     useEffect(() => {
+        setLoading(true);
         const filters = {
             Gender:gender==='any'?undefined:gender,
             Sharing:sharing==true?true:undefined,
@@ -27,11 +28,16 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
           GetFilteredFlatList(filters).then((res)=>{
             const filteredList = res as FlatMate[]
             console.log("fltyered",filteredList);
+            const filteredListwithrent = filteredList.filter((post:FlatMate)=>post.Rent <= Number(rent))
             setList(filteredList)
-            setFiltered(filteredList)
+            setFiltered(filteredListwithrent)
+            setLoading(false)
           })
     }
     ,[gender,sharing,parking,furnished,withWashroom,balcony,type])
+
+
+    
     useEffect(()=>{
         const filteredList = list.filter((post:FlatMate)=>post.Rent <= Number(rent))
           setFiltered(filteredList)
