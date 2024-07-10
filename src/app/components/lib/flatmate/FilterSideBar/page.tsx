@@ -17,12 +17,12 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
     useEffect(() => {
         const filters = {
             Gender:gender==='any'?undefined:gender,
-            Sharing:sharing==true?false:undefined,
+            Sharing:sharing==true?true:undefined,
             Parking:parking==true?true:undefined,
             Furnished:furnished==true?true:undefined,
             WithWashroom:withWashroom==true?true:undefined,
             Balcony:balcony==true?true:undefined,
-            Type:type
+            Type:type==='any'?undefined:type
         }
           GetFilteredFlatList(filters).then((res)=>{
             const filteredList = res as FlatMate[]
@@ -56,15 +56,15 @@ export default function FilterSideBar({ filtered, setFiltered,list,setList}: { f
             <div className="bg-white border p-2 mt-2">
                 <div>Type</div>
                 <div>
-                    <input id="gender-radio-pg" type="checkbox" name="pg" checked={type === 'pg'} onChange={(e) => setType(e.target.name)} />
+                    <input id="gender-radio-pg" type="checkbox" name="Pg" checked={type === 'Pg'} onChange={(e) => setType(e.target.name)} />
                     <label className="ms-2" htmlFor="gender-radio-pg" >Pg</label>
                 </div>
                 <div>
-                    <input id="gender-radio-flat" type="checkbox" name="flat" checked={type === 'flat'} onChange={(e) => setType(e.target.name)} />
+                    <input id="gender-radio-flat" type="checkbox" name="Flat" checked={type === 'Flat'} onChange={(e) => setType(e.target.name)} />
                     <label className="ms-2" htmlFor="gender-radio-flat" >Flat</label>
                 </div>
                 <div>
-                    <input id="gender-radio-house" type="checkbox" name="house" checked={type === 'house'} onChange={(e) => setType(e.target.name)} />
+                    <input id="gender-radio-house" type="checkbox" name="Independent House" checked={type === 'Independent House'} onChange={(e) => setType(e.target.name)} />
                     <label className="ms-2" htmlFor="gender-radio-house" >Independent House</label>
                 </div>
                 <div>

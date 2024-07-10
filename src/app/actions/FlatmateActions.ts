@@ -151,12 +151,14 @@ export async function GetFilteredFlatList(filters:FilterOptions){
         }
         return acc;
     }, {} as any)
+   
+   
     
     try {
         const posts = await prisma.flatMate.findMany({
             where: val
         });
-       
+     
         return posts;
     }catch(e){
         console.log(e);
