@@ -1,4 +1,5 @@
-Prpoject -  FlatMates is a web application designed to facilitate the seamless discovery of compatible flatmates or roommates.
+## Project -  Flatmates
+FlatMates is a web application designed to facilitate the seamless discovery of compatible flatmates or roommates.
 FlatMates provides a comprehensive solution for individuals seeking shared living arrangements.
 
 how to use - if you are looking for a flat or some house to live just simply select your location and filters according to your prefrence and view the flat if you like it connect with the owner.
