@@ -23,7 +23,7 @@ FlatMates provides a comprehensive solution for individuals seeking shared livin
  3. Deployment - AWS Amplify
 
 ### How to Run Locally
-1. Clone the repo install dependencies
+1. Clone the repo and install dependencies
 2. add .env file
 3. add these 5 variables - 
    1. DATABASE_URL  (add your postgress url) 
