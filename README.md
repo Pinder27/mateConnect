@@ -31,6 +31,6 @@ FlatMates provides a comprehensive solution for individuals seeking shared livin
    3. NEXTAUTH_URL  (http://localhost:3000)
    4. ACCESS_KEY_ID_AWS (add your aws access key)
    5. SECRET_ACCESS_KEY_AWS (add your aws secret access key)
- 4. run npm start
+ 4. run npm run dev
 
  
