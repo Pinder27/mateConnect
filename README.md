@@ -23,7 +23,7 @@ FlatMates provides a comprehensive solution for individuals seeking shared livin
  3. Deployment - AWS Amplify
 
 ### How to Run Locally
-1. Clone the repo
+1. Clone the repo install dependencies
 2. add .env file
 3. add these 5 variables - 
    1. DATABASE_URL  (add your postgress url) 
@@ -31,5 +31,6 @@ FlatMates provides a comprehensive solution for individuals seeking shared livin
    3. NEXTAUTH_URL  (http://localhost:3000)
    4. ACCESS_KEY_ID_AWS (add your aws access key)
    5. SECRET_ACCESS_KEY_AWS (add your aws secret access key)
+ 4. run npm start
 
  
